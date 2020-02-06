@@ -1,12 +1,13 @@
 import React, {useContext, useEffect} from 'react'
-import {Store} from '../../../reducers/article.reducer'
-import {FETCH_DATA_CONTENT} from "../../../constants/article.constant";
-import { getDataArticles } from '../../../services/article.service';
-import HeaderLayout from "../layout/header.layout";
+import {Store} from '../../reducers/article.reducer'
+import {FETCH_DATA_CONTENT} from "../../constants/article.constant";
+import { getDataArticles } from '../../services/article.service';
+import HeaderLayout from "./layout/header.layout";
+import {RouterPage} from "../../router/router.component";
 
-const ArticleListComponent = React.lazy<any>(()=> import('./articleList.component'));
+const ArticleListComponent = React.lazy<any>(()=> import('./page/articleList.page'));
 
-export default function ArticleComponent():JSX.Element{
+export default function Home():JSX.Element{
 
     const {state, dispatch} = useContext(Store);
 
@@ -24,11 +25,10 @@ export default function ArticleComponent():JSX.Element{
 
     const props ={
         articles:state.articles
-    }
+    };
 
 return(
     <React.Fragment>
-        <HeaderLayout/>
         <br/>
         <div className="container mt-5 mb-5">
             <React.Suspense fallback={<div>loading......</div>}>
@@ -36,7 +36,7 @@ return(
                 <div className="row">
                <div className="col-8 mr-1">
                    <div className="hoverable p-5 border">
-                       <ArticleListComponent {...props}/>
+                       <RouterPage pageComponent={<ArticleListComponent {...props}/>} path='/article'/>
                    </div>
                </div>
                     <div className="col-3">

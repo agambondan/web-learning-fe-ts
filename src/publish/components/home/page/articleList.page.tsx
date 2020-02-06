@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-export default function ArticleListComponent(props:any):Array<JSX.Element> {
-    const {articles} = props
+export default function ArticleListPage(props:any):Array<JSX.Element> {
+    const {articles} = props;
     return articles.map((articles:any , index:number) =>{
         return (
                 <section key={index}>
@@ -11,5 +11,4 @@ export default function ArticleListComponent(props:any):Array<JSX.Element> {
                 </section>
         )
     })
-
 }
