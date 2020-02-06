@@ -1,0 +1,1 @@
+export const FETCH_DATA_CONTENT = 'FETCH_DATA_CONTENT';
